@@ -1,0 +1,79 @@
+@font-face {
+  font-family: 'pcsenior';
+  src: url('./fonts/pcsenior.ttf') format('truetype');
+}
+
+html {
+  background-color: #2b085c;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.main_container {
+  width: 100%;
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  flex-direction: row;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.game_wrapper {
+  width: 20%;
+  order: 0;
+  position: relative;
+}
+
+.right_container {
+  order: 1;
+  width: 10%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin: 2vh 1vh 1vh 1vh;
+}
+
+.column_title {
+  text-align: center;
+  order: 0;
+  font-size: 2vh;
+  font-family: 'pcsenior', serif;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 2.5vh;
+}
+
+.counter {
+  font-size: 1.8vh;
+  font-family: 'pcsenior', serif;
+  text-transform: uppercase;
+  text-align: center;
+  color: #FFFFFF;
+  margin-top: 1vh;
+}
+
+@media screen and (orientation:portrait) {
+  .main_container {
+    position: inherit;
+    top: 0;
+    transform: inherit;
+    align-items: flex-start;
+    align-content: space-between;
+    margin: 6vh 2vh 2vh 2vh;
+  }
+
+  .game_wrapper {
+    height: 60%;
+    width: 60%;
+  }
+
+  .right_container {
+    width: 30%;
+  }
+}
