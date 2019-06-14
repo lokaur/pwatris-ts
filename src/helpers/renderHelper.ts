@@ -3,28 +3,28 @@ import config from '../config';
 import { Block, Colors, Matrix } from '../types';
 import { getMatrixHeight, getMatrixWidth } from './matrixHelper';
 
-export function drawGame(context: any, board: Matrix, currentBlock: Block, blockSize: number): void {
+export function drawGame(context: any, board: Matrix, currentBlock: Block, blockSize: number) {
   clearCanvas(context);
   drawBoardSubstrate(context, blockSize);
   drawBoard(context, board, blockSize);
   drawBlock(context, currentBlock, blockSize);
 }
 
-export function clearCanvas(context: any): void {
+export function clearCanvas(context: any) {
   const { width, height } = context.canvas;
   context.fillStyle = config.gridColor2;
   context.fillRect(0, 0, width, height);
 }
 
-export function drawBoard(context: any, board: Matrix, blockSize: number): void {
+export function drawBoard(context: any, board: Matrix, blockSize: number) {
   drawMatrix(context, board, blockSize);
 }
 
-export function drawBlock(context: any, currentBlock: Block, blockSize: number): void {
+export function drawBlock(context: any, currentBlock: Block, blockSize: number) {
   drawMatrix(context, currentBlock.matrix, blockSize, currentBlock.x, currentBlock.y);
 }
 
-export function drawMatrix(context: any, matrix: Matrix, blockSize: number, offsetX = 0, offsetY = 0): void {
+export function drawMatrix(context: any, matrix: Matrix, blockSize: number, offsetX = 0, offsetY = 0) {
   const matrixHeight = getMatrixHeight(matrix);
   const matrixWidth = getMatrixWidth(matrix);
 
@@ -38,7 +38,7 @@ export function drawMatrix(context: any, matrix: Matrix, blockSize: number, offs
   }
 }
 
-function drawRect(context: any, row: number, col: number, id: number, blockSize: number): void {
+function drawRect(context: any, row: number, col: number, id: number, blockSize: number) {
   const colors = getColorsByBlockId(id);
   const x = row * blockSize;
   const y = col * blockSize;
@@ -55,7 +55,7 @@ function drawRect(context: any, row: number, col: number, id: number, blockSize:
   context.fillRect(x + outlineWidth, y + outlineWidth, blockSize - doubleOutlineWidth, blockSize - doubleOutlineWidth);
 }
 
-function drawOutlineTop(context: any, color: string, x: number, y: number, blockSize: number, outlineWidth: number): void {
+function drawOutlineTop(context: any, color: string, x: number, y: number, blockSize: number, outlineWidth: number) {
   context.fillStyle = color;
   context.beginPath();
   context.moveTo(x, y);
@@ -66,7 +66,7 @@ function drawOutlineTop(context: any, color: string, x: number, y: number, block
   context.fill();
 }
 
-function drawOutlineRight(context: any, color: string, x: number, y: number, blockSize: number, outlineWidth: number): void {
+function drawOutlineRight(context: any, color: string, x: number, y: number, blockSize: number, outlineWidth: number) {
   context.fillStyle = color;
   context.beginPath();
   context.moveTo(x + blockSize, y);
@@ -77,7 +77,7 @@ function drawOutlineRight(context: any, color: string, x: number, y: number, blo
   context.fill();
 }
 
-function drawOutlineBottom(context: any, color: string, x: number, y: number, blockSize: number, outlineWidth: number): void {
+function drawOutlineBottom(context: any, color: string, x: number, y: number, blockSize: number, outlineWidth: number) {
   context.fillStyle = color;
   context.beginPath();
   context.moveTo(x, y + blockSize);
@@ -88,7 +88,7 @@ function drawOutlineBottom(context: any, color: string, x: number, y: number, bl
   context.fill();
 }
 
-function drawOutlineLeft(context: any, color: string, x: number, y: number, blockSize: number, outlineWidth: number): void {
+function drawOutlineLeft(context: any, color: string, x: number, y: number, blockSize: number, outlineWidth: number) {
   context.fillStyle = color;
   context.beginPath();
   context.moveTo(x, y);
@@ -99,7 +99,7 @@ function drawOutlineLeft(context: any, color: string, x: number, y: number, bloc
   context.fill();
 }
 
-function drawBoardSubstrate(context: any, blockSize: number): void {
+function drawBoardSubstrate(context: any, blockSize: number) {
   const [ boardWidth, boardHeight ] = config.boardSize;
   context.globalAlpha = config.boardSubstrateAlpha;
 

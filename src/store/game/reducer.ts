@@ -33,7 +33,7 @@ const reducer: Reducer<IGameState> = (curState = initialState, action) => {
       return { ...curState, board: createEmptyMatrix(config.boardSize[ 0 ], config.boardSize[ 1 ]) };
     }
     case GameActionTypes.SET_GAME_STATE: {
-      return { ...curState, gameState: action.gameState };
+      return { ...curState, gameState: action.payload };
     }
     case GameActionTypes.MOVE_BLOCK_DOWN: {
       const blockClone = cloneDeep(curState.currentBlock);
@@ -72,15 +72,15 @@ const reducer: Reducer<IGameState> = (curState = initialState, action) => {
       return { ...curState, currentBlock: blockClone };
     }
     case GameActionTypes.MERGE_BLOCK_TO_BOARD: {
-      const { matrix, x, y } = action.block;
+      const { matrix, x, y } = action.payload;
       return { ...curState, board: mergeMatrices(curState.board, matrix, x, y) };
     }
     case GameActionTypes.REMOVE_LINES: {
-      const lines = action.lineIndexes.length + curState.lines;
+      const lines = action.payload.length + curState.lines;
       const level = Math.floor(lines / 10);
       return {
         ...curState,
-        board: action.lineIndexes.reduce((board: Matrix, lineIndex: number) =>
+        board: action.payload.reduce((board: Matrix, lineIndex: number) =>
           removeRow(board, lineIndex), cloneDeep(curState.board)),
         lines,
         level
@@ -89,9 +89,9 @@ const reducer: Reducer<IGameState> = (curState = initialState, action) => {
     case GameActionTypes.ADD_SCORE: {
       return {
         ...curState,
-        score: curState.score + action.score,
-        highScore: curState.score + action.score > curState.highScore
-          ? curState.score + action.score
+        score: curState.score + action.payload,
+        highScore: curState.score + action.payload > curState.highScore
+          ? curState.score + action.payload
           : curState.highScore
       };
     }
