@@ -7,16 +7,14 @@ import { getMatrixWidth, getMatrixHeight } from '../helpers/matrixHelper';
 import config from '../config';
 
 import './NextBlock.scss';
-import { IApplicationState, IConnectedReduxProps } from '../store';
+import { IApplicationState } from '../store';
 import { Block } from '../types';
 
 interface IPropsFromState {
   nextBlock: Block
 }
 
-type IAllProps = IConnectedReduxProps & IPropsFromState;
-
-class NextBlock extends React.Component<IAllProps, IPropsFromState> {
+class NextBlock extends React.Component<IPropsFromState, IPropsFromState> {
   private readonly nextBlockBoardSize: number;
   private canvasRef?: any;
   private canvasContext?: CanvasRenderingContext2D;
@@ -24,7 +22,7 @@ class NextBlock extends React.Component<IAllProps, IPropsFromState> {
   private isInitialized = false;
   private blockSize?: number;
 
-  constructor(props) {
+  constructor(props: IPropsFromState) {
     super(props);
     this.nextBlockBoardSize = config.nextBlockBoardSize;
     this.onResize = this.onResize.bind(this);

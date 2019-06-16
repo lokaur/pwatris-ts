@@ -1,6 +1,6 @@
 import { IApplicationState } from '../store';
 
-const KEY = 'PWATRIS';
+const KEY = 'PWATRIS-TS';
 
 export const loadState = (): IApplicationState | undefined => {
   try {

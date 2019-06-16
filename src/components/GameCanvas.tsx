@@ -16,7 +16,7 @@ interface IPropsFromState {
 
 type IAllProps = IConnectedReduxProps & IPropsFromState;
 
-class GameCanvas extends React.Component<IAllProps, IGameState> {
+class GameCanvas extends React.Component<IAllProps, IPropsFromState> {
   private readonly canvasPaddingBottom: number;
   private canvasRef?: any;
   private isInitialized = false;

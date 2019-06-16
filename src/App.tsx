@@ -1,23 +1,43 @@
 import React from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  fas,
+  faPlay,
+  faPause,
+  faRedo,
+  faChevronRight,
+  faChevronLeft,
+  faChevronDown,
+  faVolumeUp,
+  faVolumeMute
+} from '@fortawesome/free-solid-svg-icons';
 
 import GameCanvas from './components/GameCanvas';
 import NextBlock from './components/NextBlock';
+import LevelCounter from './components/LevelCounter';
+import ScoreCounter from './components/ScoreCounter';
+import HighScoreCounter from './components/HighScoreCounter';
 
 import './App.scss';
+import SoundControls from './components/SoundControls';
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <div className='main_container'>
-        <div className='game_wrapper'>
-          <GameCanvas/>
-        </div>
-        <div className='right_container'>
-          <NextBlock/>
-        </div>
+library.add(fas, faPlay, faPause, faRedo, faChevronRight, faChevronLeft, faChevronDown, faVolumeUp, faVolumeMute);
+
+const App: React.FC = () => (
+  <div className="App">
+    <div className='main_container'>
+      <div className='game_wrapper'>
+        <GameCanvas/>
+      </div>
+      <div className='right_container'>
+        <NextBlock/>
+        <LevelCounter/>
+        <ScoreCounter/>
+        <HighScoreCounter/>
+        <SoundControls/>
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default App;
