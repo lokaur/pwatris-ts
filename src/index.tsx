@@ -41,7 +41,9 @@ const onKeyUp = ({ code }: { code: string }) => {
 
 const onBlur = () => {
   keysWatcher.reset();
-  pauseGame();
+  if (getGameState() === GameState.GAME_STATE_PLAYING) {
+    pauseGame();
+  }
 };
 
 function main() {
