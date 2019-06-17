@@ -10,6 +10,7 @@
     "lodash": "^4.17.11",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
+    "react-device-detect": "^1.6.2",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
     "react-responsive-canvas": "^1.0.2",

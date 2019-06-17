@@ -5,18 +5,15 @@ import Canvas from 'react-responsive-canvas';
 import { drawGame } from '../helpers/renderHelper';
 import config from '../config';
 import './GameCanvas.scss';
-import { IApplicationState, IConnectedReduxProps } from '../store';
+import { IApplicationState } from '../store';
 import { Block, Matrix } from '../types';
-import { IGameState } from '../store/game';
 
 interface IPropsFromState {
   board: Matrix,
   currentBlock: Block
 }
 
-type IAllProps = IConnectedReduxProps & IPropsFromState;
-
-class GameCanvas extends React.Component<IAllProps, IPropsFromState> {
+class GameCanvas extends React.Component<IPropsFromState, IPropsFromState> {
   private readonly canvasPaddingBottom: number;
   private canvasRef?: any;
   private isInitialized = false;
@@ -24,7 +21,7 @@ class GameCanvas extends React.Component<IAllProps, IPropsFromState> {
   private blockSize?: number;
   private frameAnimationRequest?: number;
 
-  constructor(props: IAllProps) {
+  constructor(props: IPropsFromState) {
     super(props);
     this.onResize = this.onResize.bind(this);
 
