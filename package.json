@@ -1,7 +1,18 @@
 {
   "name": "pwatris-ts",
-  "version": "0.1.0",
+  "version": "1.0",
   "private": true,
+  "homepage": "https://pwatris-ts.herokuapp.com/",
+  "author": "Andrey Martynov <andremartynov@gmail.com>",
+  "keywords": [
+    "tetris",
+    "react",
+    "redux",
+    "canvas",
+    "typescript"
+  ],
+  "license": "(Apache-2.0)",
+  "main": "index.tsx",
   "dependencies": {
     "@fortawesome/fontawesome-common-types": "^0.2.19",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
@@ -21,10 +32,12 @@
     "typescript": "3.5.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "serve -s build",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
