@@ -1,6 +1,6 @@
 {
   "name": "pwatris-ts",
-  "version": "1.0",
+  "version": "1.0.0",
   "private": true,
   "homepage": "https://pwatris-ts.herokuapp.com/",
   "author": "Andrey Martynov <andremartynov@gmail.com>",

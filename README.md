@@ -1,4 +1,4 @@
-# PWAtris
+# PWAtris-TS
 
 PWA implementation of classic tetris game written on React/Redux using TypeScript. Includes mobile version! :v:
 
