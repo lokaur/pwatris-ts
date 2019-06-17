@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Canvas from 'react-responsive-canvas';
 
+import GameState from './GameState';
 import { drawGame } from '../helpers/renderHelper';
 import config from '../config';
 import './GameCanvas.scss';
@@ -70,6 +71,7 @@ class GameCanvas extends React.Component<IPropsFromState> {
     return (
       <div style={{ paddingBottom: `${this.canvasPaddingBottom}%` }}>
         <Canvas canvasRef={(e: any) => this.canvasRef = e} onResize={this.onResize} id='game'/>
+        <GameState/>
       </div>);
   }
 }
