@@ -13,7 +13,7 @@ interface IPropsFromState {
   currentBlock: Block
 }
 
-class GameCanvas extends React.Component<IPropsFromState, IPropsFromState> {
+class GameCanvas extends React.Component<IPropsFromState> {
   private readonly canvasPaddingBottom: number;
   private canvasRef?: any;
   private isInitialized = false;

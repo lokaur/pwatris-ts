@@ -22,6 +22,7 @@ import SoundControls from './components/SoundControls';
 import StartButton from './components/StartButton';
 import ControlsHelp from './components/ControlsHelp';
 import MobileControls from './components/MobileControls';
+import Music from './components/Music';
 
 import './App.scss';
 
@@ -47,6 +48,7 @@ const App: React.FC = () => (
       </div>
     </div>
     { isMobile && <MobileControls/> }
+    <Music/>
   </div>
 );
 

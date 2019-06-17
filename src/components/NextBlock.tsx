@@ -14,7 +14,7 @@ interface IPropsFromState {
   nextBlock: Block
 }
 
-class NextBlock extends React.Component<IPropsFromState, IPropsFromState> {
+class NextBlock extends React.Component<IPropsFromState> {
   private readonly nextBlockBoardSize: number;
   private canvasRef?: any;
   private canvasContext?: CanvasRenderingContext2D;
